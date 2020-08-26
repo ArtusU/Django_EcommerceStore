@@ -25,13 +25,13 @@
 							<input class="form-control" type="text" name="city" placeholder="City..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="state" placeholder="State..">
+							<input class="form-control" type="text" name="state" placeholder="Council..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+							<input class="form-control" type="text" name="postcode" placeholder="Postcode..">
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="country" placeholder="Zip code..">
+							<input class="form-control" type="text" name="country" placeholder="Country..">
 						</div>
 					</div>
 
@@ -64,7 +64,7 @@
 				</div>
 				{% endfor %}
 				<h5>Items:   {{order.get_cart_items}}</h5>
-				<h5>Total:   ${{order.get_cart_total|floatformat:2}}</h5>
+				<h5>Total:   £{{order.get_cart_total|floatformat:2}}</h5>
 			</div>
 		</div>
 	</div>
