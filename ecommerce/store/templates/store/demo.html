@@ -1,0 +1,29 @@
+<div class="box-element">
+    <table class="table">			
+        <tr>
+            <th style="flex:2"><strong>Picture</Picture></strong></th>
+            <th style="flex:2"><strong>Item</strong></th>
+            <th style="flex:1"><strong>Price</strong></th>
+            <th style="flex:1"><strong>Quantity</strong></th>
+            <th style="flex:1"><strong>Total</strong></th>
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            <th style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></th>
+            <th style="flex:2"><p>{{item.product.name}}</p></div>
+            <th style="flex:1"><p>${{item.product.price|floatformat:2}}</p></th>
+            <th style="flex:1">
+                <p class="quantity">{{item.quantity}}</p>
+                <th class="quantity">
+                    <img class="chg-quantity" src="{% static  'images/arrow-up.png' %}">
+            
+                    <img class="chg-quantity" src="{% static  'images/arrow-down.png' %}">
+                </th>
+            </th>
+            <th style="flex:1"><p>£{{item.get_total|floatformat:2}}</p></th>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
