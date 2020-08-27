@@ -43,7 +43,7 @@
 			<br>
 			<div class="box-element hidden" id="payment-info">
 				<small>Paypal Options</small>
-				<!--<button id="make-payment">Make payment</button>-->
+				<button id="make-payment">Make payment</button>
 				<div id="paypal-button-container"></div>
 			</div>
 			
@@ -105,6 +105,7 @@
 
 	<script type="text/javascript">
 		var shipping = '{{order.shipping}}'
+		var total = '{{order.get_cart_total|floatformat:2}}'
 
 		if (shipping == 'False'){
 		 	document.getElementById('shipping-info').innerHTML = ''
@@ -129,11 +130,11 @@
 	    	document.getElementById('payment-info').classList.remove("hidden");
 	    })
 
-		/*
+		
 	    document.getElementById('make-payment').addEventListener('click', function(e){
 	    	submitFormData()
 	    })
-	    */
+	    
 
 	    function submitFormData(){
 	    	console.log('Payment button clicked')
@@ -148,7 +149,7 @@
 				'address':null,
 				'city':null,
 				'state':null,
-				'zipcode':null,
+				'postcode':null,
 			}
 
 			if (shipping != 'False'){
