@@ -53,8 +53,9 @@ def updateItem(request):
 	data = json.loads(request.body)
 	productId = data['productId']
 	action = data['action']
-	print('action')
-	print('productId')
+	print('Action:', action)
+	print('Product:', productId)
+
 
 	customer = request.user.customer
 	product = Product.objects.get(id=productId)
@@ -66,10 +67,15 @@ def updateItem(request):
 		orderItem.quantity = (orderItem.quantity + 1)
 	elif action == 'remove':
 		orderItem.quantity = (orderItem.quantity - 1)
-	
+
 	orderItem.save()
 
 	if orderItem.quantity <= 0:
-		orderItem.delete
+		orderItem.delete()
 
 	return JsonResponse('Item was added', safe=False)
+
+
+def processOrder(request):
+	print('Data:', request.body)
+	return JsonResponse('Payment complete', safe=False)
